@@ -60,7 +60,7 @@ const ImageUpload = ({ value, onChange, label }) => {
         <div style={{ flexGrow: 1, position: 'relative' }}>
           <input
             type="text"
-            className="input"
+            className="form-input"
             value={value}
             onChange={(e) => onChange(e.target.value)}
             placeholder="Image URL or Path"

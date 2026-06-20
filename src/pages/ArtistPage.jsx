@@ -123,7 +123,7 @@ const ArtistPage = () => {
               Upload new images directly from your device, or paste an existing link.
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+          <div className="form-row" style={{ gap: '1.5rem' }}>
             <ImageUpload
               label="Hero Photo (Main Banner)"
               value={form.heroPhoto}
