@@ -100,7 +100,7 @@ const DashboardPage = () => {
             <FaMusic /> Edit Artist Info
           </Link>
           <a
-            href="https://amosfrank.com"
+            href="https://amos-frank.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-secondary"
