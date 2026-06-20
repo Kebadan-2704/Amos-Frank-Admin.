@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaSave, FaUser } from 'react-icons/fa';
 import { useDocument, firestoreService } from '../hooks/useFirestore';
+import ImageUpload from '../components/ImageUpload';
 import toast from 'react-hot-toast';
 
 const ArtistPage = () => {
@@ -115,29 +116,34 @@ const ArtistPage = () => {
       </motion.div>
 
       <motion.div className="glass-card" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} style={{ marginTop: 24 }}>
-        <h3 style={{ fontFamily: 'var(--font-heading)', marginBottom: 20 }}>Photo Paths</h3>
-        <small style={{ color: 'var(--text-muted)', display: 'block', marginBottom: 16 }}>
-          These are paths to images in the portfolio's /public folder (e.g., /amos-hero.jpg)
-        </small>
-
-        <div className="form-row">
-          <div className="form-group">
-            <label className="form-label">Hero Photo</label>
-            <input className="form-input" value={form.heroPhoto} onChange={(e) => updateField('heroPhoto', e.target.value)} />
+        <div className="form-group-full">
+          <div className="card-header" style={{ marginBottom: '1.5rem', background: 'rgba(255,255,255,0.02)', padding: '1rem', borderRadius: '8px' }}>
+            <h3 className="card-title">Photo Uploads</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+              Upload new images directly from your device, or paste an existing link.
+            </p>
           </div>
-          <div className="form-group">
-            <label className="form-label">About Photo</label>
-            <input className="form-input" value={form.aboutPhoto} onChange={(e) => updateField('aboutPhoto', e.target.value)} />
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group">
-            <label className="form-label">Bass Photo</label>
-            <input className="form-input" value={form.bassPhoto} onChange={(e) => updateField('bassPhoto', e.target.value)} />
-          </div>
-          <div className="form-group">
-            <label className="form-label">Keys Photo</label>
-            <input className="form-input" value={form.keysPhoto} onChange={(e) => updateField('keysPhoto', e.target.value)} />
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+            <ImageUpload
+              label="Hero Photo (Main Banner)"
+              value={form.heroPhoto}
+              onChange={(val) => updateField('heroPhoto', val)}
+            />
+            <ImageUpload
+              label="About Photo (Live on Stage)"
+              value={form.aboutPhoto}
+              onChange={(val) => updateField('aboutPhoto', val)}
+            />
+            <ImageUpload
+              label="Bass Photo"
+              value={form.bassPhoto}
+              onChange={(val) => updateField('bassPhoto', val)}
+            />
+            <ImageUpload
+              label="Keys Photo"
+              value={form.keysPhoto}
+              onChange={(val) => updateField('keysPhoto', val)}
+            />
           </div>
         </div>
       </motion.div>
